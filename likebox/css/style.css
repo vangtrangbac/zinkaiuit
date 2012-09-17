@@ -1,0 +1,106 @@
+img, a { border: 0; }
+
+#likebox_1 {
+    z-index: 10005;
+	border:2px solid #3c95d9;
+	background-color: #fff;
+	width:196px;
+	height: 353px;
+	position: fixed;
+	top: 18%;
+	right: -200px;
+}
+
+#likebox_1_1 {
+	width:196px;
+	height: 353px;
+	overflow: hidden;
+}
+
+#likebox_1 img {
+	position: absolute; 
+	top: -2px; 
+	left: -35px; 
+}
+
+#likebox_1 iframe {
+	border:0px solid #3c95d9;
+	overflow: hidden; 
+	position: static;
+	height: 360px;
+	left:-2px;
+    top:-3px;
+}
+
+#polecam_1 {
+    z-index: 10004;
+	border:2px solid #6CC5FF;
+	background-color: #6CC5FF;
+	width:246px;
+	height: 353px;
+	position: fixed;
+	top: 35%;
+	right: -250px;
+}
+
+#polecam_1_1 {
+	width:246px;
+	height: 353px;
+	overflow: hidden;
+}
+
+#polecamy_img {
+	position: absolute; 
+	top: -2px; 
+	left: -35px; 
+	border: 0;
+}
+
+#google_1 {
+    z-index: 10003;
+	background-color: #006ec9;
+	border:2px solid #006ec9;
+	border-top:2px solid #0056a0;
+	border-bottom: 2px solid #0056a0;
+	border-right:2px solid #0056a0;
+	border-left: hidden;
+	width:152px;
+	height: 97px;
+	position: fixed;
+	right: -154px;
+}
+
+#google_1_1 {
+	width:152px;
+	height: 97px;
+	overflow: hidden;
+}
+
+#google_img {
+	position: absolute; 
+	top: -2px; 
+	left: -33px; 
+	border: 0;
+}
+
+#youtube_1 {
+    z-index: 10003;
+	border:2px solid #303030;
+	background-color: #fff;
+	width:300px;
+	height: 97px;
+	position: fixed;
+	right: -303px;
+}
+
+#youtube_1_1 {
+	width:300px;
+	height: 97px;
+	overflow: hidden;
+}
+
+#youtube_1 img {
+	position: absolute; 
+	top: -2px; 
+	left: -35px; 
+}
