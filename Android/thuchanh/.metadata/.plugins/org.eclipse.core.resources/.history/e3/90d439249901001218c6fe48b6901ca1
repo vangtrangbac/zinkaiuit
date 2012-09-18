@@ -1,0 +1,115 @@
+package com.example.chapter1;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Toast;
+
+public class Chap1_ProgressDialog extends Activity {
+	CharSequence[] items ={"Google","Apple","Microsoft"};
+	   boolean[] itemsChecked=new boolean[items.length];
+	   
+	   private ProgressDialog _progressDialog;
+	   private int _progress=0;
+	   private Handler _progressHandler;
+	   
+	   
+	   /*Call when the activity is first created */
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		showDialog(1);
+		_progress=0;
+		_progressDialog.setProgress(0);
+		_progressHandler.sendEmptyMessage(0);
+		
+		_progressHandler=new Handler(){
+			public void handleMessage(Message msg){
+				super.handleMessage(msg);
+				if(_progress>=100){
+					_progressDialog.dismiss();
+				}else{
+					_progress++;
+					_progressDialog.incrementProgressBy(1);
+					_progressHandler.sendEmptyMessageDelayed(0, 100);
+				}
+			}
+		};
+		
+	}
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch(id){
+			case 0:
+				return new AlertDialog.Builder(this)
+				.setIcon(R.drawable.icon)
+				.setTitle("This is a dialog with some simple text ...")
+				.setPositiveButton("OK",new
+						DialogInterface.OnClickListener() {
+							
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								Toast.makeText(getBaseContext(), "OK clicked", Toast.LENGTH_LONG).show();
+								
+							}
+										
+							
+						})
+				.setNegativeButton("OK",new
+						DialogInterface.OnClickListener() {
+							
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_LONG).show();
+								
+							}
+										
+							
+						})
+				.setMultiChoiceItems(items,itemsChecked,new DialogInterface.OnMultiChoiceClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getBaseContext(), items[which]+(isChecked? "checked": "unchecked")
+								, Toast.LENGTH_SHORT).show();
+					}
+				})
+				.create();
+			case 1:
+				_progressDialog=new ProgressDialog(this);
+				_progressDialog.setIcon(R.drawable.icon);
+				_progressDialog.setTitle("Downloading files ...");
+				_progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+				_progressDialog.setButton(DialogInterface.BUTTON_POSITIVE,"hide",new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getBaseContext(), "Hide clicked", Toast.LENGTH_LONG).show();
+						
+					}
+					
+				});
+                    _progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"Cancel",new DialogInterface.OnClickListener() {
+					
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						Toast.makeText(getBaseContext(), "Cancel clicked", Toast.LENGTH_LONG).show();
+						
+					}
+					
+				});
+               return _progressDialog;
+				
+			
+		}
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
