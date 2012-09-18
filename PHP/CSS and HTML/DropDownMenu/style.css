@@ -1,0 +1,46 @@
+/* Edited with EditCSS */
+
+/* Edited with EditCSS */
+
+* {margin:0;
+   padding:0;}
+#container {
+ border:1px solid #686;
+background:#e4e4e3;
+float:left;}
+
+
+#container ul{
+float:left;
+list-style:none;
+}
+#container ul li{
+float:left;
+position: relative;
+}
+#container li a{
+display: block;
+color:#292929;
+font-weight:bold;
+text-decoration:none;
+padding:.3em 6px;
+}
+#container  li a:hover{
+color:white;
+background:orange;
+}
+
+#container li ul{
+position: absolute;
+display: none;
+width: 10em;
+    
+}
+#container li:hover ul{
+display: block;    
+
+}
+#container ul li ul li{
+width: 100%;
+border: 1px solid #686;
+}
