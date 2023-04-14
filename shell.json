@@ -1,0 +1,10 @@
+{
+    "runtimeConfig": {
+        "userConfig" : {
+            "context": {
+                "shell": "broker-portal-shell",
+                "version": "v1.0.0"
+            }
+        }
+    }
+}
